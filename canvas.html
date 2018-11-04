@@ -1,0 +1,28 @@
+<html>
+<head>
+ <body>
+ <canvas id="tuval" width="640" height="480" style="border: 1px solid">
+    This browser no support canvas
+
+</canvas>
+    <script>
+        var canvas=document.getElementById("tuval");
+        var drawing=canvas.getContext("2d");
+
+        drawing.beginPath();
+        drawing.moveTo(0,0);
+        drawing.lineTo(300,300);
+        drawing.lineTo(400,300);
+        drawing.moveTo(400,0);
+        drawing.lineTo(500,0);
+        drawing.arc(200,200,50,0,2*Math.PI); //x coord. y coord. radius headspot endspot
+        drawing.fillText("Javascript Tutorials",280,320);
+        drawing.stroke();
+              
+    </script>
+
+
+ </body>
+</head>
+
+</html>
