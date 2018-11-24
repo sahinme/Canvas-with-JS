@@ -4,20 +4,31 @@
  <canvas id="tuval" width="640" height="480" style="border: 1px solid">
     This browser no support canvas
 
-</canvas>
+</canvas><br>
+    <button onclick="clearCanvas();">clear</button>
     <script>
-
-        function Click(e) {
+        function clearCanvas(){
             drawing.beginPath();
-            drawing.arc(e.x,e.y,50,0,2*Math.PI);
+            drawing.fillStyle="#ffffff";
+            drawing.fillRect(0,0,canvas.width,canvas.height);
+            drawing.closePath();
+            drawing.fill();
+        }
+        function mouseClick(e) {
+            //clearCanvas();
+            drawing.beginPath();
+            drawing.arc(e.x,e.y,10,0,2*Math.PI);
+            drawing.fill();
+            drawing.fillStyle="#00ff23ff";
+            drawing.closePath();
             drawing.stroke();
         }
         
         var canvas=document.getElementById("tuval");
         var drawing=canvas.getContext("2d");
 
-        canvas.addEventListener('click',Click);
-        canvas.addEventListener('mousemove',Click);
+        canvas.addEventListener('click',mouseClick);
+        canvas.addEventListener('mousemove',mouseClick);
 
 
         drawing.beginPath();

@@ -1,0 +1,54 @@
+<html>
+<head>
+ <body>
+ <canvas id="tuval" width="640" height="480" style="border: 1px solid">
+    This browser no support canvas
+
+</canvas>
+
+<script>
+     const canvas=document.getElementById("tuval");
+     const drawing=canvas.getContext("2d");
+       
+    let width=canvas.width;
+    let height=canvas.height;
+    let x=width/2;
+    let y=height/2;
+    let dx=5;
+    let dy=5;
+
+    function bouncingBall(){
+        CanvasClear();
+        drawing.beginPath();
+        drawing.fillStyle="#00ff23ff";
+        drawing.arc(x,y,10,0,2*Math.PI);
+        drawing.closePath();
+        x+=dx;
+        y+=dy;
+        drawing.fill();
+
+        if(x>width||x<0){
+            dx=-1*dx;
+        }
+        if(y>height||y<0){
+            dy=-1*dy;
+        }
+    }
+
+    function CanvasClear(){
+        drawing.beginPath();
+        drawing.fillStyle="#ffffff";
+        drawing.fillRect(0,0,canvas.width,canvas.height);
+        drawing.closePath();
+        drawing.fill();
+    }
+
+    setInterval(bouncingBall,15);
+    
+</script>
+    
+<p id="yaz"></p>
+ </body>
+</head>
+
+</html>
