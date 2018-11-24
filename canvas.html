@@ -6,8 +6,19 @@
 
 </canvas>
     <script>
+
+        function Click(e) {
+            drawing.beginPath();
+            drawing.arc(e.x,e.y,50,0,2*Math.PI);
+            drawing.stroke();
+        }
+        
         var canvas=document.getElementById("tuval");
         var drawing=canvas.getContext("2d");
+
+        canvas.addEventListener('click',Click);
+        canvas.addEventListener('mousemove',Click);
+
 
         drawing.beginPath();
         drawing.moveTo(0,0);
